@@ -1,0 +1,15 @@
+{
+  "id": "uio-66-example",
+  "name": "UiO-66",
+  "source": {
+    "citation": "Cavka et al., Journal of the American Chemical Society (2008), 130, 13850-13851.",
+    "selectionReason": "Example configuration; supply a lawfully obtained matching CIF."
+  },
+  "validation": {
+    "requiredElements": ["Zr", "O", "C"],
+    "requiredBondPairs": ["O-Zr", "C-O", "C-C"]
+  },
+  "render": {
+    "clusterMode": "cell"
+  }
+}
