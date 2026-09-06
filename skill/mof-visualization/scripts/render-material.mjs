@@ -42,10 +42,8 @@ function renderCanvas(width, height, cluster, angle, background = 'transparent',
   return canvas;
 }
 
-async function encodeAnimation({ cluster, output, width, height, fps, duration, ffmpeg }) {
-  const frameCount = Math.round(fps * duration);
-  ensureParent(output);
-  const processHandle = spawn(ffmpeg, [
+export function buildFfmpegArgs({ output, width, height, fps }) {
+  return [
     '-hide_banner',
     '-loglevel', 'warning',
     '-y',
@@ -61,7 +59,15 @@ async function encodeAnimation({ cluster, output, width, height, fps, duration, 
     '-movflags', '+faststart',
     '-an',
     output,
-  ], { stdio: ['pipe', 'inherit', 'inherit'] });
+  ];
+}
+
+async function encodeAnimation({ cluster, output, width, height, fps, duration, ffmpeg }) {
+  const frameCount = Math.round(fps * duration);
+  ensureParent(output);
+  const processHandle = spawn(ffmpeg, buildFfmpegArgs({ output, width, height, fps }), {
+    stdio: ['pipe', 'inherit', 'inherit'],
+  });
   const completion = new Promise((resolve, reject) => {
     processHandle.once('error', reject);
     processHandle.once('exit', (code) => code === 0 ? resolve() : reject(new Error('ffmpeg exited ' + code)));

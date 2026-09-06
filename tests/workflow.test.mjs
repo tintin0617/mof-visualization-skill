@@ -6,7 +6,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { parseCif } from '../skill/mof-visualization/scripts/cif-core.mjs';
 import { validateStructures } from '../skill/mof-visualization/scripts/validate-structure.mjs';
-import { resolveClusterMode } from '../skill/mof-visualization/scripts/render-material.mjs';
+import { buildFfmpegArgs, resolveClusterMode } from '../skill/mof-visualization/scripts/render-material.mjs';
 
 const cif = fs.readFileSync(new URL('../fixtures/synthetic-zinc-framework.cif', import.meta.url), 'utf8');
 const source = parseCif(cif);
@@ -52,6 +52,20 @@ test('render command accepts only public cluster modes', () => {
   assert.equal(resolveClusterMode({}), 'cell');
   assert.equal(resolveClusterMode({ render: { clusterMode: 'spherical' } }), 'spherical');
   assert.throws(() => resolveClusterMode({ render: { clusterMode: 'custom-cage' } }), /Unsupported cluster mode/);
+});
+
+test('render command fixes the standard video encoding parameters', () => {
+  const args = buildFfmpegArgs({
+    output: 'animation.mp4',
+    width: 3840,
+    height: 2160,
+    fps: 24,
+  });
+  assert.ok(args.includes('libx264'));
+  assert.ok(args.includes('yuv420p'));
+  assert.equal(args[args.indexOf('-video_size') + 1], '3840x2160');
+  assert.equal(args[args.indexOf('-framerate') + 1], '24');
+  assert.equal(args.at(-1), 'animation.mp4');
 });
 
 test('render command creates a still and four-view inspection image', () => {
