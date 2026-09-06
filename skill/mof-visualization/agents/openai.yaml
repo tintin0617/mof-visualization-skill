@@ -1,0 +1,4 @@
+interface:
+  display_name: "MOF Visualization"
+  short_description: "Generate validated MOF visuals from traceable CIF files"
+  default_prompt: "Use $mof-visualization to validate a traceable MOF CIF and generate a transparent still, multi-view inspection sheet, and true-3D rotation video."

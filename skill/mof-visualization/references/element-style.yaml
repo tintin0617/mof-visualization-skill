@@ -1,0 +1,22 @@
+elements:
+  Zr: { color: "#2D9FC4", highlight: "#DDF8FF", shadow: "#15536F", radius: 8.2 }
+  Zn: { color: "#55B8DD", highlight: "#E5FAFF", shadow: "#1F688E", radius: 7.4 }
+  Co: { color: "#5977CC", highlight: "#DCE5FF", shadow: "#253D83", radius: 7.4 }
+  Al: { color: "#6ABFC5", highlight: "#E5FFFF", shadow: "#28656A", radius: 7.0 }
+  Fe: { color: "#C77947", highlight: "#FFE5D3", shadow: "#753C1D", radius: 7.2 }
+  Cr: { color: "#638E72", highlight: "#E4F4E7", shadow: "#2E5A3A", radius: 7.2 }
+  Ni: { color: "#4EA777", highlight: "#E0F7EA", shadow: "#226043", radius: 7.0 }
+  Ti: { color: "#708EB4", highlight: "#E5F0FF", shadow: "#354F72", radius: 7.0 }
+  Cu: { color: "#C47B42", highlight: "#FFE7CF", shadow: "#70401D", radius: 7.2 }
+  C:  { color: "#8797AB", highlight: "#F1F5FA", shadow: "#435064", radius: 3.3 }
+  N:  { color: "#536FD0", highlight: "#DDE5FF", shadow: "#263B86", radius: 4.6 }
+  O:  { color: "#DF685F", highlight: "#FFE8E3", shadow: "#8E302D", radius: 4.4 }
+  S:  { color: "#D4A63F", highlight: "#FFF1C5", shadow: "#795A15", radius: 5.0 }
+
+bonds_angstrom:
+  C-C: [1.15, 1.75]
+  C-N: [1.10, 1.72]
+  C-O: [1.05, 1.65]
+  N-Zn: [1.75, 2.45]
+  Co-N: [1.75, 2.45]
+  O-Zr: [1.75, 2.55]
