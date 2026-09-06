@@ -26,3 +26,7 @@ test('public boundary accepts public MOF content', () => {
     [],
   );
 });
+
+test('public boundary accepts lowercase checksum fragments', () => {
+  assert.deepEqual(scanEntries([{ path: 'package-lock.json', text: 'sha512-abcdmtx1234' }]), []);
+});

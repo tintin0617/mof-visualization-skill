@@ -13,7 +13,7 @@ function rules() {
     .map((value) => value.trim())
     .filter(Boolean);
   return [
-    { name: 'private-product-marker', pattern: new RegExp(privateProductMarker, 'i') },
+    { name: 'private-product-marker', pattern: new RegExp(privateProductMarker) },
     { name: 'local-user-path', pattern: posixUsersPattern },
     { name: 'local-user-path', pattern: windowsUsersPattern },
     ...denylist.map((term) => ({
@@ -86,4 +86,3 @@ async function main() {
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) await main();
-
