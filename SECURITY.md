@@ -1,8 +1,17 @@
-# Security and scientific-integrity reports
+# Security Policy
 
-Please report security issues, accidental disclosure of private data, unsafe path handling, or scientifically incorrect structure processing through a private maintainer channel before opening a public issue.
+## Supported version
 
-A useful report includes the affected command, minimal reproduction input, expected behavior, actual behavior, and whether the issue can expose local files or alter chemical identity.
+Security fixes are applied to the latest `main` and latest prerelease. Earlier development snapshots are not supported.
 
-Do not attach confidential CIF files or unpublished material data to public reports.
+## Reporting
 
+Use GitHub's [private security advisory form](https://github.com/tintin0617/mof-visualization-skill/security/advisories/new). Do not open a public issue for vulnerabilities, accidental private-data disclosure, unsafe path handling, command injection, or confidential CIF exposure.
+
+Include the affected command and commit, a minimal non-confidential reproduction, expected and actual behavior, and potential impact on local files, generated outputs, or chemical identity.
+
+Do not attach unpublished or proprietary CIF files. Prefer a minimal synthetic structure.
+
+## Scientific-integrity issues
+
+An incorrect bond, missing heavy atom, broken coordination environment, or misleading render is important but is not automatically a security vulnerability. Use a normal issue when the report contains no private data and no unsafe execution path.

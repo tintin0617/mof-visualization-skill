@@ -1,0 +1,30 @@
+name: Feature request
+description: Propose a focused capability or supported chemistry extension
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the scientific or workflow need.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Scientific evidence
+      description: Cite sources for new chemistry, thresholds, or structure handling.
+  - type: checkboxes
+    id: data
+    attributes:
+      label: Data rights
+      options:
+        - label: Any proposed fixture is public and redistributable, or a synthetic fixture will be used.
+          required: true

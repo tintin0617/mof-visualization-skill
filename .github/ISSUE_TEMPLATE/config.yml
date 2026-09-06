@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/tintin0617/mof-visualization-skill/security/advisories/new
+    about: Report vulnerabilities or accidental private-data disclosure privately.
